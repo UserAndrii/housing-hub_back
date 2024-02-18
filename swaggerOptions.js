@@ -10,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://housing-hub_back.onrender.com',
+        url: 'https://housing-hub-back.onrender.com',
       },
     ],
   },
