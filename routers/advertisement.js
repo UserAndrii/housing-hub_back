@@ -19,7 +19,7 @@ const { uploadCarPhoto, validateBody } = require('../middlewares');
  * /advertisement:
  *   get:
  *     summary: Get all advertisements
- *     tags: [Ad]
+ *     tags: [Advertisement]
  *     responses:
  *       '200':
  *         description: Successful response
@@ -32,6 +32,12 @@ const { uploadCarPhoto, validateBody } = require('../middlewares');
  *                 price: 50
  *                 description: "Опис для апартаментів"
  *                 position: { lat: 49.842957, lng: 24.031111 }
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "An error occurred while fetching advertisements."
  */
 
 router.get('/', ctrl.getAllAd);
@@ -41,7 +47,7 @@ router.get('/', ctrl.getAllAd);
  * /advertisement:
  *   post:
  *     summary: Add a new ad
- *     tags: [Ad]
+ *     tags: [Advertisement]
  *     requestBody:
  *       required: true
  *       content:
@@ -71,6 +77,18 @@ router.get('/', ctrl.getAllAd);
  *                 price: 50
  *                 description: "Опис для апартаментів"
  *                 position: { lat: 49.842957, lng: 24.031111 }
+ *       '404':
+ *         description: Not Found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Resource not found."
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "An error occurred while adding a new advertisement."
  */
 
 router.post(
